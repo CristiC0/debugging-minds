@@ -1,0 +1,194 @@
+/* "Debugging Minds": grainy print poster. Paper, charcoal ink, crimson engraving. */
+:root {
+  /* paper */
+  --dm-paper: #dbd5d6;    /* slide background (sampled from the poster) */
+  --dm-paper-2: #cec7c8;  /* tracks, chips, empty bars */
+  --dm-rule: #b4acad;     /* hairlines, fold creases, dividers */
+  --dm-white: #f2efee;    /* torn-edge highlight, text on ink */
+
+  /* ink */
+  --dm-ink: #282828;      /* headlines, borders, solid blocks */
+  --dm-ink-deep: #141414; /* code background, pressed states */
+  --dm-ink-soft: #5e595a; /* secondary text: the Russian line, captions */
+
+  /* crimson (the brain) */
+  --dm-red: #a3262f;      /* the only accent: correct answer, live timer, leader */
+  --dm-red-deep: #7c1b23; /* red on red, stamp border */
+  --dm-red-wash: rgba(163, 38, 47, 0.12);
+
+  --dm-display: 'Inter Tight', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --dm-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --dm-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --dm-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* paper grain: fractal noise, tiled */
+  --dm-grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ---------- base ---------- */
+.slidev-layout {
+  position: relative;
+  background: var(--dm-paper);
+  color: var(--dm-ink);
+  font-family: var(--dm-sans);
+  isolation: isolate;
+}
+
+/* fold creases: poster was folded in thirds */
+.slidev-layout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, transparent calc(33.3% - 1px), rgba(255,255,255,.35) 33.3%, rgba(0,0,0,.05) calc(33.3% + 1px), transparent calc(33.3% + 3px)),
+    linear-gradient(90deg, transparent calc(66.6% - 1px), rgba(255,255,255,.3) 66.6%, rgba(0,0,0,.05) calc(66.6% + 1px), transparent calc(66.6% + 3px)),
+    linear-gradient(0deg, transparent calc(50% - 1px), rgba(255,255,255,.3) 50%, rgba(0,0,0,.05) calc(50% + 1px), transparent calc(50% + 3px)),
+    radial-gradient(ellipse at 30% 20%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(0,0,0,.06), transparent 55%);
+}
+
+/* grain over everything, including the type: this is what makes it read as print */
+.slidev-layout::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background-image: var(--dm-grain);
+  opacity: .22;
+  mix-blend-mode: multiply;
+}
+.dm-no-grain::after { display: none; }
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  font-family: var(--dm-display);
+  font-weight: 900;
+  color: var(--dm-ink);
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+}
+/* .9 leading still leaves room for Ă / Ț marks against the label above */
+.slidev-layout h1 { font-size: 3.4rem; margin-top: .45rem; margin-bottom: .6rem; }
+.slidev-layout h2 { font-size: 2rem; }
+.slidev-layout h3 { font-size: 1.25rem; letter-spacing: -0.02em; }
+.slidev-layout p { line-height: 1.4; }
+.slidev-layout ::selection { background: var(--dm-red); color: var(--dm-white); }
+
+/* ---------- type helpers ---------- */
+/* Huge stacked display word. Size it with the font-size utility or inline style. */
+.dm-display {
+  font-family: var(--dm-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.045em;
+  line-height: 0.8;
+}
+/* "DEPARTAMENTUL INFORMATICĂ · FMI · USM" */
+.dm-meta {
+  font-family: var(--dm-display);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+/* mono label: "R2 · Q07", data, small numbers */
+.dm-label {
+  font-family: var(--dm-mono);
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.dm-ru { color: var(--dm-ink-soft); font-weight: 500; }
+.dm-red { color: var(--dm-red); }
+.dm-soft { color: var(--dm-ink-soft); }
+.dm-num { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum' 1; }
+.dm-rule { border-top: 2px solid var(--dm-ink); }
+.dm-rule-soft { border-top: 1px solid var(--dm-rule); }
+
+/* ---------- tags & buttons ---------- */
+.dm-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .35em;
+  font-family: var(--dm-display);
+  font-weight: 800;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  padding: .22rem .55rem;
+  border: 2px solid var(--dm-ink);
+  color: var(--dm-ink);
+  line-height: 1;
+}
+.dm-tag.solid { background: var(--dm-ink); color: var(--dm-paper); }
+.dm-tag.red { background: var(--dm-red); border-color: var(--dm-red); color: var(--dm-white); }
+.dm-tag.ghost { border-color: var(--dm-rule); color: var(--dm-ink-soft); }
+
+.dm-btn {
+  font-family: var(--dm-display);
+  font-weight: 800;
+  font-size: .72rem;
+  text-transform: uppercase;
+  border: 2px solid var(--dm-ink);
+  padding: .3rem .8rem;
+  background: transparent;
+  color: var(--dm-ink);
+  cursor: pointer;
+}
+.dm-btn:hover { background: var(--dm-ink); color: var(--dm-paper); }
+
+/* engraving hatch, for empty image slots and decorative fills */
+.dm-hatch {
+  background-image: repeating-linear-gradient(-45deg, var(--dm-red) 0 1px, transparent 1px 6px);
+  opacity: .55;
+}
+
+/* ---------- code: ink block, mono, red highlight ---------- */
+.slidev-layout pre.shiki,
+.slidev-layout .slidev-code {
+  background: var(--dm-ink-deep) !important;
+  border-radius: 0 !important;
+  font-family: var(--dm-mono);
+  font-size: .8rem !important;
+  line-height: 1.55 !important;
+}
+.slidev-layout .slidev-code-wrapper { border-radius: 0; }
+.slidev-layout .slidev-code .highlighted {
+  background: rgba(163, 38, 47, .35);
+  box-shadow: inset 3px 0 0 var(--dm-red);
+}
+.slidev-layout .slidev-code .dishonored { opacity: .5 !important; }
+.slidev-layout :not(pre) > code {
+  font-family: var(--dm-mono);
+  font-size: .85em;
+  background: var(--dm-paper-2);
+  padding: .05em .35em;
+  border-radius: 0;
+  color: var(--dm-ink);
+}
+
+/* ---------- motion ---------- */
+@keyframes dm-in-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes dm-stamp { 0% { opacity: 0; transform: rotate(var(--r, -6deg)) scale(1.6); } 60% { opacity: 1; transform: rotate(var(--r, -6deg)) scale(.94); } 100% { opacity: 1; transform: rotate(var(--r, -6deg)) scale(1); } }
+@keyframes dm-pulse { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) {
+  /* .dm-motion opts out: the easter-egg letters and the time's-up sweep must move to be noticed */
+  .slidev-layout *:not(.dm-motion), .slidev-layout *:not(.dm-motion)::before { animation-duration: 1ms !important; transition-duration: 1ms !important; }
+}
+
+/* Slidev's v-click fade: use our curve */
+.slidev-vclick-target { transition: opacity .35s var(--dm-ease), transform .35s var(--dm-ease) !important; }
+.slidev-vclick-hidden { transform: translateY(8px); }
+
+/* Question-art replay (composables/useReplay.ts): snap the art back to its start state in one frame. */
+.dm-rewind, .dm-rewind *, .dm-rewind *::before, .dm-rewind *::after {
+  transition: none !important;
+  animation: none !important;
+}
