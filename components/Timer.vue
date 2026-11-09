@@ -2,6 +2,8 @@
 // Module scope (not per instance): one id per browser window, so timers in the same
 // window never echo each other's pause/resume messages.
 const WINDOW_ID = Math.random().toString(36).slice(2)
+// One running clock per window: a timer that starts tells every other timer in this window to reset.
+const RUN_EVENT = 'dm-timer-run'
 </script>
 
 <script setup lang="ts">
@@ -54,7 +56,10 @@ const isWarn = computed(() => status.value !== 'idle' && secs.value <= props.war
 const isFinal = computed(() => status.value === 'running' && secs.value <= 3 && secs.value > 0)
 
 // ---------- clock ----------
+const uid = Math.random().toString(36).slice(2)
 function frame() {
+  // never tick (or buzz, or fire `done`) for a slide we are no longer on
+  if (!shouldRun.value) { reset(); return }
   remaining.value = Math.max(0, endsAt - performance.now())
   tickSound()
   if (remaining.value <= 0) {
@@ -66,13 +71,19 @@ function frame() {
   raf = requestAnimationFrame(frame)
 }
 function run(ms: number) {
+  if (!live.value || !active.value) { reset(); return } // only the slide on screen may own a clock
   cancelAnimationFrame(raf)
   remaining.value = ms
   endsAt = performance.now() + ms
   status.value = 'running'
   lastTick = Math.ceil(ms / 1000)
   raf = requestAnimationFrame(frame)
+  window.dispatchEvent(new CustomEvent(RUN_EVENT, { detail: uid }))
 }
+function onOtherRun(e: Event) {
+  if ((e as CustomEvent).detail !== uid && status.value !== 'idle') { clearTimeout(startTimer); reset() }
+}
+window.addEventListener(RUN_EVENT, onOtherRun)
 function pause(ms = remaining.value) {
   cancelAnimationFrame(raf)
   remaining.value = ms
@@ -152,7 +163,7 @@ function tickSound() {
 }
 function buzz() { beep(180, 0.9, 0.25, 'sawtooth') }
 
-onUnmounted(() => { clearTimeout(startTimer); cancelAnimationFrame(raf); channel?.close() })
+onUnmounted(() => { clearTimeout(startTimer); cancelAnimationFrame(raf); channel?.close(); window.removeEventListener(RUN_EVENT, onOtherRun) })
 
 // ring geometry
 const R = 44
