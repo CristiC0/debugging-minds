@@ -2,6 +2,7 @@
 // The poster's headline: huge words stacked with crushed leading,
 // with an optional red engraving image sitting *between* the lines (z-index trick).
 import { computed } from 'vue'
+import { asset } from '../composables/asset'
 
 const props = withDefaults(defineProps<{
   words: string[]
@@ -24,7 +25,7 @@ const rows = computed(() => props.words.map((w, i) => ({
 
 <template>
   <div class="stack" :class="`a-${align}`" :style="{ fontSize: size }">
-    <img v-if="image" :src="image" class="img" :class="imageClass" alt="">
+    <img v-if="image" :src="asset(image)"class="img" :class="imageClass" alt="">
     <div
       v-for="(r, i) in rows" :key="i" class="word dm-display"
       :class="{ red: red.includes(i) }" :style="{ marginTop: `${r.gap}em` }"

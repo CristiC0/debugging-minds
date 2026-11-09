@@ -15,8 +15,9 @@
 //
 // Text size is fitted automatically: it starts large and steps down until the slide doesn't overflow,
 // so a two-line clue and a ninety-word clue both fill the space.
-import { computed, nextTick, onMounted, ref, useSlots, watch } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref, useSlots, watch } from 'vue'
 import { useIsSlideActive, useNav, useSlideContext } from '@slidev/client'
+import { asset } from '../composables/asset'
 
 const props = withDefaults(defineProps<{
   number?: number | string
@@ -83,6 +84,7 @@ const { $renderContext } = useSlideContext()
 const timesUp = ref(false)
 let advanceT: ReturnType<typeof setTimeout> | undefined
 function onDone() {
+  if (!active.value) return // a timer from a slide we already left must not sweep or advance
   timesUp.value = true
   if (!props.autoNext || !['slide', 'presenter'].includes($renderContext.value)) return
   const go = () => { advanceT = setTimeout(() => { if (active.value) next() }, 2200) }
@@ -94,6 +96,7 @@ function onDone() {
   else go()
 }
 watch(active, (a) => { if (!a) { timesUp.value = false; clearTimeout(advanceT) } })
+onUnmounted(() => clearTimeout(advanceT))
 watch(active, a => a && fit())
 </script>
 
@@ -143,7 +146,7 @@ watch(active, a => a && fit())
           <div v-if="!side" class="ru fit-t" lang="ru"><slot name="ru" /><div v-if="inlineAsk && ask![1]" class="ask-l"><ph-question-bold class="qi" /><span>{{ ask![1] }}</span></div></div>
           <div v-else-if="sideArt" class="art"><slot name="art" /></div>
           <figure v-else>
-            <img :src="image" alt="">
+            <img :src="asset(image)" alt="">
             <figcaption v-if="imageCaption" class="dm-label dm-soft">{{ imageCaption }}</figcaption>
           </figure>
         </div>
