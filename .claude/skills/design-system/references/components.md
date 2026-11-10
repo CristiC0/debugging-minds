@@ -12,7 +12,7 @@ Markdown inside an HTML/component tag needs a blank line before and after it.
 | `layouts/round.vue` | Round opener with the giant crimson numeral |
 | `layouts/trivia.vue` | **The question format.** Clue paragraph RO \| RU, auto-fit, ask line, `::art::` slot, timer |
 | `components/art/*.vue` | One themed visual per question (see below) |
-| `layouts/break.vue` | Break with a block countdown |
+| `layouts/break.vue` | Break: stacked word + coffee glyph, no clock |
 | `global-bottom.vue` | Running footer (event · page), hidden on cover/round/break |
 | `setup/shiki.ts` | `min-dark` for all code blocks |
 
@@ -27,7 +27,7 @@ layout: trivia    # number round points category
                   # timer: 60  timerAt: 1  timerVariant: bar|ring|block|digits  maxSize: 1.55  minSize: .78
                   # artPos: side|band  artWidth: '15rem'
                   # body = RO clues, `::ru::` = RU clues, `::art::` = themed visual     clicks: 1
-layout: break     # minutes: 10  words: ['Pau', 'ză']
+layout: break     # words: ['Pau', 'ză']   (coffee glyph, no clock)
 ```
 Use `details`, not `info`, on the cover: `info` is a reserved Slidev headmatter key.
 
