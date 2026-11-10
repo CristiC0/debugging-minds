@@ -26,6 +26,36 @@ Copertă. Identică cu afișul. Creierul: gravura lui H. Mayo (1827), Wellcome C
 -->
 
 ---
+class: rules
+---
+
+<div class="dm-label dm-red">Before we start · Rules</div>
+
+# Regulament
+
+<div class="rgrid">
+  <div class="rule"><ph-users-three-bold class="ri" /><Bi ro="Jucați în echipă, cu o singură foaie de răspunsuri." ru="Играете командой, с одним листом ответов." /></div>
+  <div class="rule"><ph-timer-bold class="ri" /><Bi ro="60 de secunde pe întrebare." ru="60 секунд на вопрос." /></div>
+  <div class="rule"><ph-device-mobile-slash-bold class="ri" /><Bi ro="Fără telefoane, laptopuri sau internet." ru="Без телефонов, ноутбуков и интернета." /></div>
+  <div class="rule"><ph-gavel-bold class="ri" /><Bi ro="Răspunsurile se arată la final. Decizia juriului e definitivă." ru="Ответы показываем в конце. Решение жюри окончательное." /></div>
+  <div class="rule wide"><ph-key-bold class="ri dm-red" /><Bi ro="Fiți atenți la imagini: în ele se ascund litere. Notați-le, din ele obțineți o cheie și un indiciu." ru="Внимательно смотрите на картинки: в них спрятаны буквы. Записывайте их, из них получится ключ и подсказка." /></div>
+</div>
+
+<style>
+.rgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem 2.6rem; margin-top: 1.4rem; }
+.rule { display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: start; padding-top: .9rem; border-top: 3px solid var(--dm-ink); }
+.ri { font-size: 2.1rem; color: var(--dm-ink); }
+.rule.wide { grid-column: 1 / -1; border-top-color: var(--dm-red); }
+.ri.dm-red { color: var(--dm-red); }
+.rule .ro { font-size: 1.22rem; line-height: 1.22; }
+.rule .ru { font-size: 1rem; line-height: 1.25; }
+</style>
+
+<!--
+Regulamentul. Citiți-l cu voce tare înainte de runda 1. Ceasul de pe fiecare întrebare pornește/oprește cu SPACE; după „Time's up”, SPACE sau → trece la următoarea.
+-->
+
+---
 layout: round
 round: 1
 stats: ['15 questions', '60 s', 'Answers at the end']
@@ -929,6 +959,20 @@ stats: ['Practical task', 'Instructions from the jury']
 
 <!--
 Anunțul rundei 3 (practică). Strângeți foile din runda 2. Juriul verifică foile în timp ce echipele lucrează; apoi treceți la răspunsuri. Literele aduse de gândac pe slide-urile rundei 2 formează indiciul NOCHEATING (runda 1: cheia, încă nedecisă).
+-->
+
+---
+layout: full
+ctf: true
+---
+
+<CtfBoard />
+
+<!--
+Slide-ul care stă pe ecran cât lucrează echipele. Ceasul numără timpul scurs și se schimbă DOAR din butoane (Start · Pause/Resume · Reset; Reset cere al doilea clic în 3 s). Plecarea de pe slide sau reîncărcarea nu îl resetează; ferestrele presenter și audiență sunt sincronizate. Cât merge ceasul, puteți trece pe alte slide-uri (de ex. răspunsurile): un bloc mic „CTF” cu timpul apare în colțul din dreapta sus; un clic pe el vă întoarce aici.
+ETAPE (sus-dreapta): 5 lacăte numerotate 00–04 ca în planul juriului (Etapa 0–4). Iconițele arată ce fac echipele, nu ce găsesc: 00 pachetul de start · 01 cheia (decriptare) · 02 lupa pe loguri · 03 grila · 04 ochiul (priviți mai atent). Clic pe lacătul următor când echipa din frunte trece de etapa respectivă; clic din nou pe ultimul deschis îl închide la loc. Reset le închide pe toate.
+FINAL: când prima echipă strigă „Control C!”, apăsați Ctrl+C pe acest slide (sau butonul Finish din presenter). Timpul îngheață, apare „^C” + „Runda s-a încheiat” și steaguri care cad; rămâne așa până la Reset (dublu clic). Nimic de pe slide nu dezvăluie cheia, IP-ul, parola sau fraza finală înainte de Ctrl+C.
+Easter eggs: la 03:14, 04:04, 13:37, 17:04, 42:00 și 1:00:00 apare câte o ștampilă. Tastați „hack”, „pwn”, „help” sau „dorin”. Clic pe gândacul de jos îl strivește; 5 clicuri pe Dorin. Reflectorul Directorului trece prin birou: când ajunge la Dorin, el se îndreaptă și ecranul trece de pe video pe cod.
 -->
 
 ---

@@ -9,7 +9,9 @@ const RUN_EVENT = 'dm-timer-run'
 <script setup lang="ts">
 // Countdown for quiz questions.
 //
-// Start: driven by presenter clicks so audience + presenter windows start together.
+// Manual (`manual`): nothing starts by itself. Space on the current slide starts / pauses / resumes
+//   the clock; once it reaches 0, Space falls through to Slidev and moves on. Leaving the slide resets it.
+// Start (auto): driven by presenter clicks so audience + presenter windows start together.
 //   at = 0 → starts when the slide is entered (after `delay` seconds); at = N → starts at click N (set `clicks:` in frontmatter).
 // Freeze: stopAt = N freezes the clock at click N (e.g. the answer reveal); going back resumes it.
 // Pause / resume / restart: click the timer. Synced between windows of the same browser
@@ -29,7 +31,8 @@ const props = withDefaults(defineProps<{
   id?: string            // only needed for two timers with the same seconds + variant on one slide
   label?: boolean        // show "Time" caption
   delay?: number         // seconds to wait before starting once the start condition is met
-}>(), { delay: 0, seconds: 30, at: 0, variant: 'digits', warn: 10, sound: true, label: true })
+  manual?: boolean       // Space starts/pauses instead of starting on enter/click
+}>(), { manual: false, delay: 0, seconds: 30, at: 0, variant: 'digits', warn: 10, sound: true, label: true })
 
 const emit = defineEmits<{ done: [] }>()
 
@@ -100,7 +103,7 @@ const shouldRun = computed(() => live.value && active.value && $clicks.value >= 
 let startTimer: ReturnType<typeof setTimeout> | undefined
 watch(shouldRun, (go, was) => {
   clearTimeout(startTimer)
-  if (go && !was) {
+  if (go && !was && !props.manual) {
     if (props.delay > 0) startTimer = setTimeout(() => run(total.value), props.delay * 1000)
     else run(total.value)
   }
@@ -163,7 +166,21 @@ function tickSound() {
 }
 function buzz() { beep(180, 0.9, 0.25, 'sawtooth') }
 
-onUnmounted(() => { clearTimeout(startTimer); cancelAnimationFrame(raf); channel?.close(); window.removeEventListener(RUN_EVENT, onOtherRun) })
+// Space = start / pause / resume this slide's clock. Capture phase on window runs before Slidev's
+// own shortcut (useMagicKeys, bubble), so stopping it there keeps Space from advancing the deck.
+// After 0 ('done') Space is left alone and moves to the next slide like →.
+function onKey(e: KeyboardEvent) {
+  if (e.code !== 'Space' || e.shiftKey || e.repeat) return
+  if (!props.manual || !live.value || !active.value || status.value === 'done') return
+  const t = e.target as HTMLElement | null
+  if (t?.closest('input, textarea, [contenteditable="true"]')) return
+  e.preventDefault()
+  e.stopImmediatePropagation()
+  toggle()
+}
+window.addEventListener('keydown', onKey, true)
+
+onUnmounted(() => { window.removeEventListener('keydown', onKey, true); clearTimeout(startTimer); cancelAnimationFrame(raf); channel?.close(); window.removeEventListener(RUN_EVENT, onOtherRun) })
 
 // ring geometry
 const R = 44

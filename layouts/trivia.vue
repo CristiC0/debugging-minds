@@ -9,7 +9,7 @@
 //   image: /q/01.jpg   imageCaption: 'Via roșie · Красные виноградники'   (optional side image)
 //   `::art::` slot: a themed visual for this question (components/art/*). artPos: side (default) | band
 //   artWidth: '15rem' (side column width)
-//   timer: 60   timerDelay: 2.5 (s after the slide opens; timerAt: 0 default)   timerVariant: bar | ring | block | digits
+//   timer: 60   Space starts / pauses it; after 0, Space or → moves on (leaving resets it)   timerVariant: bar | ring | block | digits
 //   clicks: N   ← only when timerAt ≥ 1 (start on a click instead)
 //   Easter-egg letters live in the art: <SomeArt egg="M" /> (components/EggLetter.vue)
 //
@@ -41,8 +41,8 @@ const props = withDefaults(defineProps<{
   //   headline → slim header, the ask set first as the headline, ring timer on the right
   //   card     → bordered question card with a number tab; ask + block timer in an ink band
   look?: 'classic' | 'panel' | 'headline' | 'card'
-  autoNext?: boolean   // when the timer hits 0: "time's up" sweep, then go to the next slide
-}>(), { timerAt: 0, timerDelay: 2.5, timerVariant: 'bar', artPos: 'side', artWidth: '15rem', maxSize: 1.55, minSize: 0.78, look: 'panel', autoNext: true })
+  autoNext?: boolean   // (off) when the timer hits 0: "time's up" sweep, then go to the next slide
+}>(), { timerAt: 0, timerDelay: 2.5, timerVariant: 'bar', artPos: 'side', artWidth: '15rem', maxSize: 1.55, minSize: 0.78, look: 'panel', autoNext: false })
 
 const pad = (n?: number | string) => String(n ?? '').padStart(2, '0')
 const classic = computed(() => props.look === 'classic')
@@ -110,7 +110,7 @@ watch(active, a => a && fit())
         <template v-if="category"><dt>Topic</dt><dd>{{ category }}</dd></template>
         <template v-if="points"><dt>Points</dt><dd>{{ points }}</dd></template>
       </dl>
-      <div v-if="timer" class="ptimer"><Timer :seconds="timer" :at="timerAt" :delay="timerDelay" variant="alarm" :label="false" @done="onDone" /></div>
+      <div v-if="timer" class="ptimer"><Timer :seconds="timer" :at="timerAt" :delay="timerDelay" manual variant="alarm" :label="false" @done="onDone" /></div>
     </aside>
 
     <div v-if="timesUp" class="timesup dm-motion"><span class="tu dm-display dm-motion">Time's up</span></div>
@@ -156,17 +156,17 @@ watch(active, a => a && fit())
             <div class="ask-l" lang="ro"><ph-question-bold class="qi" /><span>{{ ask[0] }}</span></div>
             <div v-if="ask[1]" class="ask-l" lang="ru"><ph-question-bold class="qi" /><span>{{ ask[1] }}</span></div>
           </div>
-          <div v-if="look === 'card' && timer" class="ctimer"><Timer :seconds="timer" :at="timerAt" :delay="timerDelay" variant="block" :label="false" /></div>
+          <div v-if="look === 'card' && timer" class="ctimer"><Timer :seconds="timer" :at="timerAt" :delay="timerDelay" manual variant="block" :label="false" /></div>
         </div>
       </div>
 
       <aside v-if="sideTimer">
-        <Timer :seconds="timer" :at="timerAt" :delay="timerDelay" :variant="tVariant" />
+        <Timer :seconds="timer" :at="timerAt" :delay="timerDelay" manual :variant="tVariant" />
       </aside>
     </main>
 
     <footer v-if="classic && timer && timerVariant === 'bar'">
-      <Timer :seconds="timer" :at="timerAt" :delay="timerDelay" variant="bar" />
+      <Timer :seconds="timer" :at="timerAt" :delay="timerDelay" manual variant="bar" />
     </footer>
   </div>
 </template>
