@@ -89,7 +89,7 @@ function onDone() {
   if (!props.autoNext || !['slide', 'presenter'].includes($renderContext.value)) return
   const go = () => { advanceT = setTimeout(() => { if (active.value) next() }, 2200) }
   const locks = (navigator as any).locks
-  if (locks) locks.request(`dm-next-${props.number}`, { ifAvailable: true }, async (lock: unknown) => {
+  if (locks) locks.request(`dm-next-${props.round}-${props.number}`, { ifAvailable: true }, async (lock: unknown) => {
     if (!lock) return
     go(); await new Promise(r => setTimeout(r, 4000))
   })

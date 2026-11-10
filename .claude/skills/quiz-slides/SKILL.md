@@ -140,7 +140,7 @@ Components read `$clicks`, which Slidev only counts when the slide declares them
 Timer on slide enter instead: `timerAt: 0` and `clicks: 0`.
 
 ## Numbering
-- `number:` is global across the event (01…NN), not per round. The header pads it to 2 digits.
+- `number:` restarts at 01 in every round (round 2 runs 01–15 again), and so does each round's answer sheet. The header pads it to 2 digits.
 - `round:` shows as `R1` in the header. Points: 10 per question unless the rules say otherwise.
 
 ## Host checklist

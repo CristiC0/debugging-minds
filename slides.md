@@ -516,7 +516,7 @@ Runda 2: întrebările mai grele. Indicii lungi, răspuns liber pe foaie. Strân
 
 ---
 layout: trivia
-number: 16
+number: 1
 round: 2
 points: 10
 category: Data structures
@@ -545,7 +545,7 @@ Răspuns (la final): B (B-tree / B-arbore).
 
 ---
 layout: trivia
-number: 17
+number: 2
 round: 2
 points: 10
 category: Languages
@@ -574,7 +574,7 @@ Răspuns (la final): Rust. În RU nu spuneți „ржавчинные грибы
 
 ---
 layout: trivia
-number: 18
+number: 3
 round: 2
 points: 10
 category: AI
@@ -603,7 +603,7 @@ Răspuns (la final): vibe coding.
 
 ---
 layout: trivia
-number: 19
+number: 4
 round: 2
 points: 10
 category: AI
@@ -632,7 +632,7 @@ Cronometrul pornește singur după 2,5 s. Răspuns (la final): Transformer. Acce
 
 ---
 layout: trivia
-number: 20
+number: 5
 round: 2
 points: 10
 category: Security
@@ -661,7 +661,7 @@ Răspuns (la final): Heartbleed.
 
 ---
 layout: trivia
-number: 21
+number: 6
 round: 2
 points: 10
 category: Databases
@@ -690,7 +690,7 @@ Răspuns (la final): Apache Cassandra.
 
 ---
 layout: trivia
-number: 22
+number: 7
 round: 2
 points: 10
 category: Companies
@@ -719,7 +719,7 @@ Răspuns (la final): Oracle.
 
 ---
 layout: trivia
-number: 23
+number: 8
 round: 2
 points: 10
 category: Systems
@@ -748,7 +748,7 @@ Răspuns (la final): 2038 (problema anului 2038, Y2K38). 2^31 − 1 = 2 147 483 
 
 ---
 layout: trivia
-number: 24
+number: 9
 round: 2
 points: 10
 category: Inventions
@@ -777,7 +777,7 @@ Răspuns (la final): codul QR (Quick Response).
 
 ---
 layout: trivia
-number: 25
+number: 10
 round: 2
 points: 10
 category: Crypto
@@ -806,7 +806,7 @@ Răspuns (la final): două pizza (Bitcoin Pizza Day). Acceptați „pizza”.
 
 ---
 layout: trivia
-number: 26
+number: 11
 round: 2
 points: 10
 category: Design
@@ -835,7 +835,7 @@ Răspuns (la final): Lorem ipsum. Acceptați și „текст-рыба” doar 
 
 ---
 layout: trivia
-number: 27
+number: 12
 round: 2
 points: 10
 category: Mobile
@@ -864,7 +864,7 @@ Răspuns (la final): KitKat (Android 4.4 KitKat).
 
 ---
 layout: trivia
-number: 28
+number: 13
 round: 2
 points: 10
 category: Languages
@@ -893,7 +893,7 @@ Cronometrul pornește singur după 2,5 s. Răspuns (la final): Python (după Mon
 
 ---
 layout: trivia
-number: 29
+number: 14
 round: 2
 points: 10
 category: Networking
@@ -922,7 +922,7 @@ Răspuns (la final): DNS (Domain Name System).
 
 ---
 layout: trivia
-number: 30
+number: 15
 round: 2
 points: 10
 category: Security
@@ -1022,34 +1022,34 @@ Un clic = un răspuns (15 clicuri). Q1: acceptați reCAPTCHA. Q2: acceptați „
 clicks: 15
 ---
 
-<div class="dm-label dm-red">Round 2 · Answers · 16–30</div>
+<div class="dm-label dm-red">Round 2 · Answers · 01–15</div>
 
 # Răspunsuri runda 2
 
 <div class="grid grid-cols-2 gap-x-8 mt-4">
 <AnswerList compact :items="[
-  { n: 16, ro: 'Arborele de la Boeing', ru: 'Дерево из Boeing', answer: 'B (B-tree)' },
-  { n: 17, ro: 'Limbajul lui Hoare', ru: 'Язык Хоара', answer: 'Rust' },
-  { n: 18, ro: 'Cuvântul anului 2025', ru: 'Слово 2025 года', answer: 'Vibe coding' },
-  { n: 19, ro: 'Arhitectura din 2017', ru: 'Архитектура 2017 года', answer: 'Transformer' },
-  { n: 20, ro: 'Vulnerabilitatea din 2014', ru: 'Уязвимость 2014 г.', answer: 'Heartbleed' },
-  { n: 21, ro: 'Profetesa troiană', ru: 'Троянская пророчица', answer: 'Apache Cassandra' },
-  { n: 22, ro: 'Compania', ru: 'Компания', answer: 'Oracle' },
-  { n: 23, ro: 'Contorul Unix', ru: 'Счётчик Unix', answer: '2038' },
+  { n: 1, ro: 'Arborele de la Boeing', ru: 'Дерево из Boeing', answer: 'B (B-tree)' },
+  { n: 2, ro: 'Limbajul lui Hoare', ru: 'Язык Хоара', answer: 'Rust' },
+  { n: 3, ro: 'Cuvântul anului 2025', ru: 'Слово 2025 года', answer: 'Vibe coding' },
+  { n: 4, ro: 'Arhitectura din 2017', ru: 'Архитектура 2017 года', answer: 'Transformer' },
+  { n: 5, ro: 'Vulnerabilitatea din 2014', ru: 'Уязвимость 2014 г.', answer: 'Heartbleed' },
+  { n: 6, ro: 'Profetesa troiană', ru: 'Троянская пророчица', answer: 'Apache Cassandra' },
+  { n: 7, ro: 'Compania', ru: 'Компания', answer: 'Oracle' },
+  { n: 8, ro: 'Contorul Unix', ru: 'Счётчик Unix', answer: '2038' },
 ]" />
 <AnswerList compact :reveal-at="9" :items="[
-  { n: 24, ro: 'Codul inspirat de Go', ru: 'Код, вдохновлённый го', answer: 'Codul QR' },
-  { n: 25, ro: 'Prima cumpărare', ru: 'Первая покупка', answer: 'Două pizza' },
-  { n: 26, ro: 'Textul lui Cicero', ru: 'Текст Цицерона', answer: 'Lorem ipsum' },
-  { n: 27, ro: 'Android 4.4', ru: 'Android 4.4', answer: 'KitKat' },
-  { n: 28, ro: 'Grupul de comedie', ru: 'Комедийная труппа', answer: 'Python' },
-  { n: 29, ro: 'Agenda internetului', ru: 'Телефонная книга интернета', answer: 'DNS' },
-  { n: 30, ro: 'Mesajul fals', ru: 'Фальшивое письмо', answer: 'Phishing' },
+  { n: 9, ro: 'Codul inspirat de Go', ru: 'Код, вдохновлённый го', answer: 'Codul QR' },
+  { n: 10, ro: 'Prima cumpărare', ru: 'Первая покупка', answer: 'Două pizza' },
+  { n: 11, ro: 'Textul lui Cicero', ru: 'Текст Цицерона', answer: 'Lorem ipsum' },
+  { n: 12, ro: 'Android 4.4', ru: 'Android 4.4', answer: 'KitKat' },
+  { n: 13, ro: 'Grupul de comedie', ru: 'Комедийная труппа', answer: 'Python' },
+  { n: 14, ro: 'Agenda internetului', ru: 'Телефонная книга интернета', answer: 'DNS' },
+  { n: 15, ro: 'Mesajul fals', ru: 'Фальшивое письмо', answer: 'Phishing' },
 ]" />
 </div>
 
 <!--
-Un clic = un răspuns (15 clicuri). Q19: acceptați „Transformers”. Q21: acceptați „Cassandra”. Q25: acceptați „pizza”. Q30: acceptați „spear phishing”.
+Un clic = un răspuns (15 clicuri). Q4: acceptați „Transformers”. Q6: acceptați „Cassandra”. Q10: acceptați „pizza”. Q15: acceptați „spear phishing”.
 -->
 
 ---
