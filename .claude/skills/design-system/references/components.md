@@ -27,7 +27,7 @@ layout: trivia    # number round points category
                   # timer: 60  timerAt: 1  timerVariant: bar|ring|block|digits  maxSize: 1.55  minSize: .78
                   # artPos: side|band  artWidth: '15rem'
                   # body = RO clues, `::ru::` = RU clues, `::art::` = themed visual     clicks: 1
-layout: break     # words: ['Pau', 'ză']   (coffee glyph, no clock)
+layout: break     # words: ['Break']   (English only, coffee glyph, no clock)
 ```
 Use `details`, not `info`, on the cover: `info` is a reserved Slidev headmatter key.
 
