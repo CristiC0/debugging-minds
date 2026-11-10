@@ -503,6 +503,17 @@ Răspuns (la final): cal troian (Trojan). Acceptați „troian”, „Trojan hor
 -->
 
 ---
+layout: break
+minutes: 10
+---
+
+<Bi ro="Urmează runda 2" ru="Далее раунд 2" />
+
+<!--
+Pauză de 10 minute. Strângeți foile din runda 1 în timpul pauzei.
+-->
+
+---
 layout: round
 round: 2
 stats: ['15 questions', '60 s', 'Answers at the end']
