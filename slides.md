@@ -131,7 +131,7 @@ number: 3
 round: 1
 points: 10
 category: Graphics
-ask: ['Cum se numesc, în general, aceste suprafețe?', 'Как в общем называются эти поверхности?']
+ask: ['Cum se numesc aceste suprafețe, indiferent de numărul de laturi?', 'Как называются эти поверхности, независимо от числа сторон?']
 artWidth: 13rem
 timer: 60
 ---
@@ -160,27 +160,27 @@ number: 4
 round: 1
 points: 10
 category: History
-ask: ['Ce au lipit în jurnal?', 'Что они вклеили в журнал?']
+ask: ['Ce insectă au găsit?', 'Какое насекомое они нашли?']
 artWidth: 13rem
 timer: 60
 ---
 
 În **septembrie 1947**, echipa lui **Grace Hopper** lucra la calculatorul **Harvard Mark II** când mașina a început să dea rezultate greșite. Operatorii au găsit cauza fizică a defecțiunii și au lipit-o cu scotch în jurnalul de lucru.
 
-Alături au notat: **„First actual case of <Blank :n="3" /> being found”**. Jurnalul se află azi la **Smithsonian**.
+Alături au notat: **„First actual case of bug being found”**. Jurnalul se află azi la **Smithsonian**.
 
 ::ru::
 
 В **сентябре 1947** года команда **Грейс Хоппер** работала на компьютере **Harvard Mark II**, когда машина начала выдавать неверные результаты. Операторы нашли физическую причину сбоя и вклеили её скотчем в рабочий журнал.
 
-Рядом они записали: **«First actual case of <Blank :n="3" /> being found»**. Сегодня журнал хранится в **Смитсоновском институте**.
+Рядом они записали: **«First actual case of bug being found»**. Сегодня журнал хранится в **Смитсоновском институте**.
 
 ::art::
 
 <LogBook egg="G" />
 
 <!--
-Răspuns (la final): o molie (moth). Cuvântul lipsă: „bug”. Acceptați „o molie / un fluture de noapte / o insectă”.
+Răspuns (la final): o molie (moth). Acceptați „o molie / un fluture de noapte”, «моль / мотылёк». NU acceptați „bug” sau „o insectă” (sunt deja pe slide).
 -->
 
 ---
@@ -225,13 +225,13 @@ timer: 60
 
 Acest computer fictiv este antagonistul filmului **„2001: Odiseea spațială”** al lui **Kubrick**, din **1968**. O teorie populară spune că numele său ascunde o glumă: fiecare literă vine **cu o poziție înaintea** literelor din numele celui mai mare producător de computere din epocă.
 
-Arthur C. Clarke a negat mereu această legătură. Vocea sa calmă a definit imaginea AI-urilor malefice timp de decenii.
+**Arthur C. Clarke**, coautorul scenariului, a negat mereu această legătură. Vocea calmă a computerului a definit imaginea AI-urilor malefice timp de decenii.
 
 ::ru::
 
 Этот вымышленный компьютер — антагонист фильма **«2001 год: Космическая одиссея»** Стэнли **Кубрика** (**1968**). Популярная теория гласит, что в его имени спрятана шутка: каждая буква стоит **на одну позицию раньше** букв названия крупнейшего производителя компьютеров той эпохи.
 
-Артур Кларк всегда отрицал эту связь. Его спокойный голос на десятилетия определил образ злого ИИ.
+**Артур Кларк**, соавтор сценария, всегда отрицал эту связь. Спокойный голос компьютера на десятилетия определил образ злого ИИ.
 
 ::art::
 
@@ -283,13 +283,13 @@ timer: 60
 
 Pe **19 iulie 2024**, o firmă americană de **securitate cibernetică** a trimis o actualizare greșită pentru produsul său **Falcon**. Aproximativ **8,5 milioane** de calculatoare **Windows** au afișat ecranul albastru, iar aeroporturi, spitale și bănci s-au oprit.
 
-Nu a fost un atac, iar sistemele Linux și macOS nu au avut probleme.
+Nu a fost un atac. Sistemele Linux și macOS nu au fost afectate.
 
 ::ru::
 
 **19 июля 2024** года американская компания в сфере **кибербезопасности** выпустила ошибочное обновление для своего продукта **Falcon**. Около **8,5 миллиона** компьютеров на **Windows** показали синий экран, а аэропорты, больницы и банки остановились.
 
-Это была не атака, а системы Linux и macOS не пострадали.
+Это была не атака. Системы Linux и macOS не пострадали.
 
 ::art::
 
@@ -305,7 +305,7 @@ number: 9
 round: 1
 points: 10
 category: UI
-ask: ['Cum se numește?', 'Как она называется?']
+ask: ['Cum se numește această iconiță?', 'Как называется этот значок?']
 artWidth: 13rem
 timer: 60
 ---
@@ -370,7 +370,7 @@ timer: 60
 
 **Tony Hoare**, un reputat informatician britanic, a numit crearea **ACESTUIA** „greșeala mea de **un miliard de dolari**”. L-a introdus în **1965**, în limbajul **ALGOL W**.
 
-În **Java**, pentru a combate consecințele acestei greșeli, în versiunea **8** a fost introdusă o clasă-container specială numită **Optional**.
+Pentru a combate consecințele acestei greșeli, **Java 8** a introdus o clasă-container specială numită **Optional**.
 
 ::ru::
 
@@ -392,7 +392,7 @@ number: 12
 round: 1
 points: 10
 category: Languages
-ask: ['Cum îl numim astăzi?', 'Как мы называем его сегодня?']
+ask: ['Cum se numește acest mecanism din JVM?', 'Как называется этот механизм JVM?']
 artWidth: 13rem
 timer: 60
 ---
@@ -421,20 +421,20 @@ number: 13
 round: 1
 points: 10
 category: Cryptography
-ask: ['Cum se numea acest cod?', 'Как назывался этот шифр?']
+ask: ['Cum se numea această mașină?', 'Как называлась эта машина?']
 artWidth: 13rem
 timer: 60
 ---
 
 În **Al Doilea Război Mondial**, **Alan Turing** a contribuit, la **Bletchley Park**, la spargerea unui **cod german secret**.
 
-Mesajele erau cifrate de o mașină cu **rotoare**, care schimba cheia la fiecare literă tastată.
+Mesajele erau cifrate de o mașină cu **rotoare**, care schimba modul de cifrare la fiecare literă tastată.
 
 ::ru::
 
 Во время **Второй мировой войны** **Алан Тьюринг** в **Блетчли-парке** помог взломать **секретный немецкий шифр**.
 
-Сообщения шифровала машина с **роторами**, которая меняла ключ при каждой нажатой букве.
+Сообщения шифровала машина с **роторами**, которая меняла способ шифрования при каждой нажатой букве.
 
 ::art::
 
@@ -548,7 +548,7 @@ Numele său este format dintr-o **singură literă** urmată de **„-tree”**.
 <NodeTree egg="N" />
 
 <!--
-Răspuns (la final): B (B-tree / B-arbore).
+Răspuns (la final): B (B-tree / B-arbore). Acceptați și „B+”.
 -->
 
 ---
@@ -615,7 +615,7 @@ number: 4
 round: 2
 points: 10
 category: AI
-ask: ['Cum se numea aceasta?', 'Как она называется?']
+ask: ['Cum se numește această arhitectură?', 'Как называется эта архитектура?']
 artWidth: 13rem
 timer: 60
 ---
@@ -794,13 +794,13 @@ artWidth: 13rem
 timer: 60
 ---
 
-Pe **22 mai 2010**, programatorul american **Laszlo Hanyecz** a făcut prima cumpărare documentată cu o **monedă digitală** nouă. A plătit **10 000 de unități** pentru **două** porții dintr-o mâncare foarte comună, pe care un alt utilizator de pe forum i le-a comandat.
+Pe **22 mai 2010**, programatorul american **Laszlo Hanyecz** a făcut prima cumpărare documentată cu o **monedă digitală** nouă. A plătit **10 000 de unități** pentru **două** mâncăruri foarte comune, pe care un alt utilizator de pe forum i le-a comandat.
 
 În **2025**, acele monede valorau peste **un miliard de dolari**.
 
 ::ru::
 
-**22 мая 2010** года американский программист **Ласло Ханеч** совершил первую задокументированную покупку за новую **цифровую валюту**. Он заплатил **10 000 монет** за **две** порции очень обычной еды, которые ему заказал другой пользователь форума.
+**22 мая 2010** года американский программист **Ласло Ханеч** совершил первую задокументированную покупку за новую **цифровую валюту**. Он заплатил **10 000 монет** за **два** очень обычных блюда, которые ему заказал другой пользователь форума.
 
 В **2025** году эти монеты стоили больше **миллиарда долларов**.
 
@@ -912,7 +912,7 @@ timer: 60
 
 Oamenii rețin mai ușor numele unui site decât adresa sa numerică.
 
-Un sistem al internetului funcționează ca o **agendă**: primește un **nume de domeniu** și găsește **adresa IP** asociată.
+Un sistem al internetului funcționează ca o **carte de telefon**: primește un **nume de domeniu** și găsește **adresa IP** asociată.
 
 ::ru::
 
@@ -970,6 +970,35 @@ Anunțul rundei 3 (practică). Strângeți foile din runda 2. Juriul verifică f
 -->
 
 ---
+class: ctf-brief
+---
+
+<div class="dm-label dm-red">Round 3 · Task</div>
+
+# Găsiți cuvântul secret
+
+<div class="cb-steps">
+  <div class="rule"><ph-file-zip-bold class="ri" /><Bi ro="Descărcați arhiva de start din grupul de Telegram." ru="Скачайте стартовый архив из группы в Telegram." /></div>
+  <div class="rule"><ph-magnifying-glass-bold class="ri" /><Bi ro="Pornind de la arhivă, găsiți cuvântul secret." ru="Начиная с архива, найдите секретное слово." /></div>
+  <div class="rule"><ph-megaphone-bold class="ri" /><Bi ro="Când îl aveți, spuneți-l juriului." ru="Когда найдёте, сообщите его жюри." /></div>
+  <div class="rule key"><ph-robot-bold class="ri dm-red" /><Bi ro="Orice metodă e permisă, în afară de LLM-uri și alte instrumente AI." ru="Разрешено всё, кроме LLM и других AI-инструментов." /></div>
+</div>
+
+<style>
+.cb-steps { display: flex; flex-direction: column; gap: .85rem; margin-top: 1.2rem; }
+.rule { display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: start; padding-top: .7rem; border-top: 3px solid var(--dm-ink); }
+.rule.key { border-top-color: var(--dm-red); }
+.ri { font-size: 2rem; color: var(--dm-ink); }
+.ri.dm-red { color: var(--dm-red); }
+.rule .ro { font-size: 1.18rem; line-height: 1.22; }
+.rule .ru { font-size: .98rem; line-height: 1.25; }
+</style>
+
+<!--
+Sarcina rundei 3. Postați arhiva de start (start.zip) în grupul de Telegram; echipele o descarcă și, pornind de la ea, găsesc cuvântul secret și îl spun juriului. Orice instrument e permis (terminal, editor, internet), DOAR fără LLM/AI (ChatGPT, Copilot, Gemini etc.). Apoi treceți la slide-ul CTF și porniți ceasul.
+-->
+
+---
 layout: full
 ctf: true
 ---
@@ -1023,7 +1052,7 @@ clicks: 15
 </div>
 
 <!--
-Un clic = un răspuns (15 clicuri). Q1: acceptați reCAPTCHA. Q2: acceptați „Postgres”. Q3: „triunghiuri” singur nu e suficient. Q4: acceptați orice insectă de noapte (cuvântul lipsă era „bug”). Q6: acceptați „HAL”. Q10: acceptați „Crăciun fericit” / «С Рождеством». Q11: acceptați „null”, „null pointer”, „NullPointerException”. Q12: acceptați „colectorul de gunoi”, „GC”, «сборщик мусора». Q15: acceptați „troian”, «троян».
+Un clic = un răspuns (15 clicuri). Q1: acceptați reCAPTCHA. Q2: acceptați „Postgres”. Q3: „triunghiuri” singur nu e suficient. Q4: acceptați „fluture de noapte” / «мотылёк»; NU „bug” sau „insectă”. Q6: acceptați „HAL”. Q10: acceptați „Crăciun fericit” / «С Рождеством». Q11: acceptați „null”, „null pointer”, „NullPointerException”. Q12: acceptați „colectorul de gunoi”, „GC”, «сборщик мусора». Q15: acceptați „troian”, «троян».
 -->
 
 ---
